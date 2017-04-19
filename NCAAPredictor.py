@@ -19,7 +19,7 @@ def learn_naive_bayes(class_key,feature_keys,
     
 
 
-    #If you implement the learn_discrete function, this line learns the class prior
+    #learns the class prior
     PClearned = learn_discrete([instance[class_key] for instance in dataset],class_prior_count,class_domain)
     PFlearned = dict()
     
@@ -83,21 +83,20 @@ def normalize(probabilities):
 
 
 def loadgames(fn="2017 NCAAM Game Results Data.csv"):
-    #load stats.  You may decide to use this if you are shooting for extra credit
+    #load stats
     games = []
     with open(fn,"r") as csvfile:
         games = [row for row in csv.DictReader(csvfile)]
     return games
 
 def loadfeatures(fn="2017 NCAAM Game Results Features.csv"):
-    #load features.  You may decide to use this in your problem
+    #load features
     games = []
     with open(fn,"r") as csvfile:
         games = [row for row in csv.DictReader(csvfile)]
     return games
 
-#These variables are only names, and should not be included into your prediction
-#(unless you have a strong reason to think that a good name helps win games)
+
 namevars = ["Date","Team","Opponent"]
 
 #Roots of stat variables.  These will appear in the games file as keys
